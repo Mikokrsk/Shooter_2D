@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float _speed = 1;
     [SerializeField] private BoxCollider2D _bounds;
 
+    [SerializeField] private GameObject _bulletPref;
+
     private void Awake()
     {
         if (_speed < 0)
@@ -18,11 +20,12 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        Move();
+        HandleMovement();
         RotateWithCursore();
+        Shoot();
     }
 
-    private void Move()
+    private void HandleMovement()
     {
         var horizontal = Input.GetAxis("Horizontal");
         var vertical = Input.GetAxis("Vertical");
@@ -63,6 +66,21 @@ public class Player : MonoBehaviour
         if (transform.position.y < _bounds.bounds.min.y)
         {
             transform.position = new Vector3(transform.position.x, _bounds.bounds.min.y);
+        }
+    }
+
+    private void Shoot()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            var bullet = Instantiate(_bulletPref, transform);
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            Vector3 direction = mousePosition - transform.position;
+
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+            bullet.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 90));
         }
     }
 }
