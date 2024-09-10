@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        var newPosition = transform.up * _speed * Time.deltaTime;
+        var newPosition = transform.right * _speed * Time.deltaTime;
         transform.position += newPosition;
     }
 }
