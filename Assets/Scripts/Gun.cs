@@ -6,11 +6,35 @@ public abstract class Gun : MonoBehaviour
 {
     [SerializeField] private GameObject _bulletPref;
     [SerializeField] private Transform _bulletSpawnPosition;
+    [SerializeField] private float _shootingDelay;
+    [SerializeField] private float _curShootingDelay;
+    [SerializeField] private bool _isShooting;
+
+    protected virtual void Update()
+    {
+        if (_curShootingDelay >= 0 && !_isShooting)
+        {
+            _isShooting = false;
+            _curShootingDelay -= Time.deltaTime;
+        }
+        else
+        {
+            _isShooting = true;
+            _curShootingDelay = _shootingDelay;
+        }
+    }
 
     public virtual void Fire()
     {
-        var bullet = Instantiate(_bulletPref, _bulletSpawnPosition.transform.position, transform.rotation, transform);
+        if (_isShooting)
+        {
+            SpawnBullet();
+            _isShooting = false;
+        }
+    }
 
-        bullet.transform.parent = null;
+    private void SpawnBullet()
+    {
+        Instantiate(_bulletPref, _bulletSpawnPosition.transform.position, transform.rotation, null);
     }
 }
