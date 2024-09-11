@@ -1,15 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AimController : MonoBehaviour
 {
-    [SerializeField] private GameObject _bulletPref;
-    [SerializeField] private Gun _gun;
+    [SerializeField] private Weapon _weapon;
 
-    private void Update()
+    void Update()
     {
-        Shoot();
         RotateWithCursore();
     }
 
@@ -25,11 +24,5 @@ public class AimController : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
-    private void Shoot()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            _gun?.Fire();
-        }
-    }
+
 }

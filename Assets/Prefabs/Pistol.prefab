@@ -9,7 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 361542145652426791}
-  - component: {fileID: 5644460826533591526}
+  - component: {fileID: 2580269578389378472}
+  - component: {fileID: 5567233784331356657}
+  - component: {fileID: 3758608503597910461}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -34,7 +36,7 @@ Transform:
   - {fileID: 8958092074379000950}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5644460826533591526
+--- !u!114 &2580269578389378472
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,11 +45,56 @@ MonoBehaviour:
   m_GameObject: {fileID: 6218446331937829409}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f08a4eceee546da449c3683c2e712a6f, type: 3}
+  m_Script: {fileID: 11500000, guid: 86e0783abe42f7743adea10c3b6399af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPref: {fileID: 9160651598950638082, guid: edcad95a18f3a554d9008762ac519f49, type: 3}
-  _bulletSpawnPosition: {fileID: 8958092074379000950}
+  weaponName: Pistol
+  _fireModeList:
+  - {fileID: 5567233784331356657}
+  - {fileID: 3758608503597910461}
+  _currentFireModeId: 0
+--- !u!114 &5567233784331356657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6218446331937829409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ee915fd450c39a42b33c0c5cdfe17b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 0
+  bulletPref: {fileID: 9160651598950638082, guid: edcad95a18f3a554d9008762ac519f49, type: 3}
+  bulletSpawnPosition: {fileID: 8958092074379000950}
+  fireRateMax: 0.1
+  magazineCapacity: 30
+  reloadTime: 2
+  currentFireRate: 0.1
+  currentAmmo: 0
+  isReloading: 0
+--- !u!114 &3758608503597910461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6218446331937829409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98ebe80ab58125c438141908a182d9de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 0
+  bulletPref: {fileID: 9160651598950638082, guid: edcad95a18f3a554d9008762ac519f49, type: 3}
+  bulletSpawnPosition: {fileID: 8958092074379000950}
+  fireRateMax: 0.1
+  magazineCapacity: 30
+  reloadTime: 2
+  currentFireRate: 0.1
+  currentAmmo: 0
+  isReloading: 0
 --- !u!1 &6602957086813509295
 GameObject:
   m_ObjectHideFlags: 0
