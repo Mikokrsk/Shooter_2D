@@ -12,7 +12,6 @@ public class AimController : MonoBehaviour
         RotateWithCursore();
     }
 
-
     private void RotateWithCursore()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -24,5 +23,13 @@ public class AimController : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
+    public Weapon GetWeapon()
+    {
+        return _weapon;
+    }
+    public void SetWeapon(Weapon weapon)
+    {
+        _weapon = weapon;
+    }
 
 }

@@ -607,6 +607,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2580269578389378472, guid: 99ce57dca9895ea468666fab50f3c248, type: 3}
+      propertyPath: bulletPref
+      value: 
+      objectReference: {fileID: 9160651598950638082, guid: edcad95a18f3a554d9008762ac519f49, type: 3}
+    - target: {fileID: 2580269578389378472, guid: 99ce57dca9895ea468666fab50f3c248, type: 3}
+      propertyPath: magazineCapacity
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2580269578389378472, guid: 99ce57dca9895ea468666fab50f3c248, type: 3}
+      propertyPath: bulletSpawnPosition
+      value: 
+      objectReference: {fileID: 2417079970412574169}
+    - target: {fileID: 3758608503597910461, guid: 99ce57dca9895ea468666fab50f3c248, type: 3}
+      propertyPath: _settings
+      value: 
+      objectReference: {fileID: 11400000, guid: e0d95b2ec466d9242bc8fae65aa263af, type: 2}
+    - target: {fileID: 3758608503597910461, guid: 99ce57dca9895ea468666fab50f3c248, type: 3}
+      propertyPath: _bulletPref
+      value: 
+      objectReference: {fileID: 9160651598950638082, guid: edcad95a18f3a554d9008762ac519f49, type: 3}
+    - target: {fileID: 3758608503597910461, guid: 99ce57dca9895ea468666fab50f3c248, type: 3}
+      propertyPath: _bulletSpread
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3758608503597910461, guid: 99ce57dca9895ea468666fab50f3c248, type: 3}
+      propertyPath: _bulletSpawnPosition
+      value: 
+      objectReference: {fileID: 2417079970412574169}
+    - target: {fileID: 5567233784331356657, guid: 99ce57dca9895ea468666fab50f3c248, type: 3}
+      propertyPath: _settings
+      value: 
+      objectReference: {fileID: 11400000, guid: ac8d96e69ebe1f44b8ea9eae903671d8, type: 2}
+    - target: {fileID: 5567233784331356657, guid: 99ce57dca9895ea468666fab50f3c248, type: 3}
+      propertyPath: _bulletPref
+      value: 
+      objectReference: {fileID: 9160651598950638082, guid: edcad95a18f3a554d9008762ac519f49, type: 3}
+    - target: {fileID: 5567233784331356657, guid: 99ce57dca9895ea468666fab50f3c248, type: 3}
+      propertyPath: _bulletSpread
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567233784331356657, guid: 99ce57dca9895ea468666fab50f3c248, type: 3}
+      propertyPath: _bulletSpawnPosition
+      value: 
+      objectReference: {fileID: 2417079970412574169}
     - target: {fileID: 6218446331937829409, guid: 99ce57dca9895ea468666fab50f3c248, type: 3}
       propertyPath: m_Name
       value: Pistol
@@ -616,6 +660,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99ce57dca9895ea468666fab50f3c248, type: 3}
+--- !u!4 &2417079970412574169 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8958092074379000950, guid: 99ce57dca9895ea468666fab50f3c248, type: 3}
+  m_PrefabInstance: {fileID: 2417079970412574168}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3362967031950543679
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,6 +713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13714f932a4176349b8fcd0352365f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aimController: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

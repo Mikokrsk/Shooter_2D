@@ -4,55 +4,35 @@ using UnityEngine;
 
 public abstract class FireMode : MonoBehaviour
 {
-    public bool isActive;
+    [SerializeField] protected FireModeData _settings;
 
-    [SerializeField] protected GameObject bulletPref;
-    [SerializeField] protected Transform bulletSpawnPosition;
+    [SerializeField] protected Firearm firearm;
 
-    [SerializeField] protected float fireRateMax = 0.1f;
-    [SerializeField] protected int magazineCapacity = 30;
-    [SerializeField] protected float reloadTime = 2.0f;
-
-    [SerializeField] protected float currentFireRate = 0.1f;
-    [SerializeField] protected int currentAmmo;
-    [SerializeField] protected bool isReloading = false;
+    protected float _currentFireRate = 0.1f;
 
     protected virtual void Start()
     {
-        currentAmmo = magazineCapacity;
+        if (firearm == null)
+        {
+            firearm = GetComponent<Firearm>();
+        }
     }
 
     protected virtual void Shoot()
     {
-        if (currentAmmo == 0)
+        if (firearm.isReloading) return;
+
+        if (_currentFireRate <= 0)
         {
-            StartCoroutine(Reload());
-            return;
+            _currentFireRate = _settings.fireRateMax;
+            firearm.SpawnBullet(GetRandomBulletSpread());
         }
-
-        if (isReloading) return;
-
-        if (currentFireRate <= 0)
-        {
-            SpawnBullet();
-            currentAmmo--;
-            currentFireRate = fireRateMax;
-        }
-
     }
 
-    protected virtual void SpawnBullet()
+    protected virtual float GetRandomBulletSpread()
     {
-        Instantiate(bulletPref, bulletSpawnPosition.position, transform.rotation, null);
+        var bulletSpread = Random.Range(-_settings.bulletSpread, _settings.bulletSpread);
+        return bulletSpread;
     }
 
-    protected virtual IEnumerator Reload()
-    {
-        isReloading = true;
-        Debug.Log("Reloading...");
-        yield return new WaitForSeconds(reloadTime);
-        currentAmmo = magazineCapacity;
-        isReloading = false;
-        Debug.Log("Reloaded.");
-    }
 }
